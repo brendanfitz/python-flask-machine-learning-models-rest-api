@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-md-center">
+  <div class="col-sm-8">
+    {% if prediction %}
+    <p class="text-center">Your prediction for probability of default is <span class="font-weight-bold">{{prediction}}</span></p>
+    {% else %}
+    <p class="text-center">Fill out the form with borrower info for loan default prediction!</p>
+    {% endif %}
+    <hr>
+    <form method="post">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.loan_amnt.label }}{{ form.loan_amnt(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.int_rate.label }}{{ form.int_rate(class_="form-control") }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.annual_inc.label }}{{ form.annual_inc(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.dti.label }}{{ form.dti(class_="form-control") }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.emp_length.label }}{{ form.emp_length(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.term.label }}{{ form.term(class_="form-control") }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form.purpose.label }}{{ form.purpose(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form.grade.label }}{{ form.grade(class_="form-control") }}
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        {{ form.submit(class_="btn btn-primary") }}
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+
+{% endblock %}
