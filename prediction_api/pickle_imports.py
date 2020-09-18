@@ -5,30 +5,30 @@ import pandas as pd
 from sklearn.preprocessing import PolynomialFeatures, OneHotEncoder, StandardScaler
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.linear_model import LinearRegression, Lasso, LassoCV
-from metis_app.ml_models import luther_util
+from prediction_api.ml_models import luther_util
 from sklearn.ensemble import RandomForestClassifier
 import time
 import boto3
 import warnings
 from statsmodels.regression.linear_model import OLSResults
-from metis_app.ml_models.db import ml_db
+from prediction_api.ml_models.db import ml_db
 warnings.simplefilter("ignore", UserWarning)
 
-LOCAL_DIRECTORY = 'metis_app/static/pickles/'
-AWS_ACCESS_KEY_ID = os.environ.get('METIS_APP_AWS_ACCESS_KEY_ID')
-AWS_SECRET_KEY = os.environ.get('METIS_APP_AWS_SECRET_KEY')
+LOCAL_DIRECTORY = 'prediction_api/static/pickles/'
+AWS_ACCESS_KEY_ID = os.environ.get('prediction_api_AWS_ACCESS_KEY_ID')
+AWS_SECRET_KEY = os.environ.get('prediction_api_AWS_SECRET_KEY')
 
 
 if not os.path.exists(LOCAL_DIRECTORY):
     os.mkdir(LOCAL_DIRECTORY)
 
 import sys
-sys.path.append('metis_app/ml_models')
+sys.path.append('prediction_api/ml_models')
 
 def aws_download(object_name, filename=None,
     bucket_name='metis-projects',
     bucket_directory='pickles',
-    local_directory='metis_app/static/pickles'):
+    local_directory='prediction_api/static/pickles'):
 
     if bucket_directory:
         object_path = bucket_directory + '/' + object_name

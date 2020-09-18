@@ -2,13 +2,13 @@
 import numpy as np
 import pandas as pd
 from flask import render_template, abort, request, Blueprint
-from metis_app.ml_models.forms import (MoviePredictorForm, LoanPredictorForm,
+from prediction_api.ml_models.forms import (MoviePredictorForm, LoanPredictorForm,
                                        KickstarterPitchOutcomeForm, TitanticPredictorForm,
                                        NhlGoalsPredictorForm)
-from metis_app.ml_models.pickle_imports import Pickle_Imports
-from metis_app.ml_models import mcnulty_util as mu
-from metis_app.ml_models import titanic_util as tu
-from metis_app.ml_models.db import ml_db
+from prediction_api.ml_models.pickle_imports import Pickle_Imports
+from prediction_api.ml_models import mcnulty_util as mu
+from prediction_api.ml_models import titanic_util as tu
+from prediction_api.ml_models.db import ml_db
 from statsmodels.regression.linear_model import OLSResults
 
 ml_models = Blueprint('ml_models', __name__, template_folder="templates/ml_models")
