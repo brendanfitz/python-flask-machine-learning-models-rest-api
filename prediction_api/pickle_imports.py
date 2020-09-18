@@ -53,60 +53,11 @@ def aws_download(object_name, filename=None,
 class Pickle_Imports:
 
     def __init__(self):
-        self.regr = None
-        self.budget_poly = None
-        self.budget_poly_scaler = None
-        self.ohe = None
-        self.cv = None
-        self.passthroughs_scaler = None
         self.rf = None
         self.kickstarter_vectorizer = None
         self.kickstarter_model = None
         self.titantic_model = None
         self.nhl_goals_model = None
-
-    def luther_downloads(self):
-        start = time.time()
-        filename = 'luther_model.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.regr = pickle.load(f)
-        end = time.time()
-        print('Luther Model: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'budget_poly.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.budget_poly = pickle.load(f)
-        end = time.time()
-        print('Budget Poly: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'budget_poly_scaler.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.budget_poly_scaler = pickle.load(f)
-        end = time.time()
-        print('Budget Poly Scaler: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'ohe.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.ohe = pickle.load(f)
-        end = time.time()
-        print('OHE: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'cv.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.cv = pickle.load(f)
-        end = time.time()
-        print('CV: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'passthroughs_scaler.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.passthroughs_scaler = pickle.load(f)
-        end = time.time()
-        print('Passthroughs Scaler: {:,.4f} seconds'.format(end - start))
 
     def mcnulty_downloads(self):
         start = time.time()
