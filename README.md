@@ -6,6 +6,8 @@ But after reading, you've been thinking, "I wish there a way I could use those m
 
 Well look no further!
 
-Here a Flask rest api app for accessing prediction data from all my Metis and personal machine learning algorithms.
+I've created a Flask REST API for accessing prediction data from all my Metis and personal machine learning algorithms.
 
 This is launched on a Raspberry Pi server for the world to use!
+
+Enjoy!
