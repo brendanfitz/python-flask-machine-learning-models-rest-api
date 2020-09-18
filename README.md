@@ -1,4 +1,4 @@
-# python-flask-machine-learning-projects-rest-api
+# python-flask-machine-learning-models-rest-api
 
 
 I bet after you've wandered here after reading all my in-depth and amazing blogs posts about my super cool machine learning models.
