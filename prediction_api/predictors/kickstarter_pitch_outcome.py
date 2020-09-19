@@ -1,4 +1,4 @@
-from prediction_api.predictor import Predictor
+from prediction_api.predictors.predictor import Predictor
 
 class KickstarterPitchOutcomePredictor(Predictor):
 

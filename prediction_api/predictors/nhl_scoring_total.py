@@ -1,9 +1,9 @@
 from pandas import DataFrame
 from os import path
 from statsmodels.regression.linear_model import OLSResults
-from prediction_api.predictor import Predictor
+from prediction_api.predictors.predictor import Predictor
 
-class NhlPlayerSeasonScoringTotal(Predictor):
+class NhlPlayerSeasonScoringTotalPredictor(Predictor):
 
     PICKLES_PATH = Predictor.PICKLES_PATH + 'nhl/'
 

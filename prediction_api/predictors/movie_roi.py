@@ -1,6 +1,6 @@
 from os import path
 from numpy import concatenate
-from prediction_api.predictor import Predictor
+from prediction_api.predictors.predictor import Predictor
 
 class MovieRoiPredictor(Predictor):
 

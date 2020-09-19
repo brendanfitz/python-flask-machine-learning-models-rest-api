@@ -1,10 +1,12 @@
 import numpy as np
 from flask import Flask, request, jsonify
-from prediction_api.movie_roi_predictor import MovieRoiPredictor 
-from prediction_api.lending_club_loan_default_predictor import LendingClubLoanDefaultPredictor
-from prediction_api.kickstarter_pitch_outcome import KickstarterPitchOutcomePredictor 
-from prediction_api.titanic_predictor import TitanicPredictor
-from prediction_api.nhl_scoring_total import NhlPlayerSeasonScoringTotal
+from prediction_api.predictors import (
+    MovieRoiPredictor, 
+    LendingClubLoanDefaultPredictor,
+    KickstarterPitchOutcomePredictor,
+    TitanicPredictor,
+    NhlPlayerSeasonScoringTotalPredictor,
+)
 
 app = Flask(__name__)
 
@@ -12,7 +14,7 @@ movie_mod = MovieRoiPredictor()
 loan_mod = LendingClubLoanDefaultPredictor()
 kickstarter_mod = KickstarterPitchOutcomePredictor()
 titanic_mod = TitanicPredictor()
-nhl_mod = NhlPlayerSeasonScoringTotal()
+nhl_mod = NhlPlayerSeasonScoringTotalPredictor()
 
 @app.route('/')
 def hello():
