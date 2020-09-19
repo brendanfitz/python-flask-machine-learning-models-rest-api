@@ -1,10 +1,9 @@
 from os import path
-import pickle
-import prediction_api.luther_util as luther_util
+from prediction_api.predictor import Predictor
 
-class MovieRoiPredictor(object):
+class MovieRoiPredictor(Predictor):
 
-    PICKLES_PATH = './prediction_api/static/pickles/movie_predictor/'
+    PICKLES_PATH = Predictor.PICKLES_PATH + 'movie_predictor/'
     
     def __init__(self):
         self.regr = self.load_pickle('luther_model.pkl')
@@ -13,9 +12,3 @@ class MovieRoiPredictor(object):
         self.ohe = self.load_pickle('ohe.pkl')
         self.cv = self.load_pickle('cv.pkl')
         self.passthroughs_scaler = self.load_pickle('passthroughs_scaler.pkl')
-
-    def load_pickle(self, filename):
-        filepath = path.join(self.PICKLES_PATH, filename)
-        with open(filepath, 'rb') as f:
-            pkl_obj = pickle.load(f)
-        return pkl_obj
