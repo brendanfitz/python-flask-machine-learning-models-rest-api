@@ -58,21 +58,6 @@ class Pickle_Imports:
         self.titantic_model = None
         self.nhl_goals_model = None
 
-    def fletcher_downloads(self):
-        start = time.time()
-        filename = 'kickstarter_vectorizer.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.kickstarter_vectorizer = pickle.load(f)
-        end = time.time()
-        print('Kickstart Vectorizer: {:,.4f} seconds'.format(end - start))
-
-        start = time.time()
-        filename = 'kickstarter_model.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.kickstarter_model = pickle.load(f)
-        end = time.time()
-        print('Kickstarter Model: {:,.4f} seconds'.format(end - start))
-
     def titantic_downloads(self):
         start = time.time()
         filename = 'titanic_model.pkl'
