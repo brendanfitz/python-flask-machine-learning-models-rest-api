@@ -3,12 +3,14 @@ from flask import Flask, request, jsonify
 from prediction_api.movie_roi_predictor import MovieRoiPredictor 
 from prediction_api.lending_club_loan_default_predictor import LendingClubLoanDefaultPredictor
 from prediction_api.kickstarter_pitch_outcome import KickstarterPitchOutcomePredictor 
+from prediction_api.titanic_predictor import TitanicPredictor
 
 app = Flask(__name__)
 
 movie_mod = MovieRoiPredictor()
 loan_mod = LendingClubLoanDefaultPredictor()
 kickstarter_mod = KickstarterPitchOutcomePredictor()
+titanic_mod = TitanicPredictor()
 
 @app.route('/')
 def hello():
@@ -39,3 +41,10 @@ def kickstarter_pitch_outcome():
     }
     return jsonify(data)
 
+@app.route('/titanic')
+def titanic():
+    prediction = titanic_mod.predict(request.args)
+    data = {
+        'prediction': prediction,
+    }
+    return jsonify(data)
