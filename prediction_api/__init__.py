@@ -2,11 +2,13 @@ import numpy as np
 from flask import Flask, request, jsonify
 from prediction_api.movie_roi_predictor import MovieRoiPredictor 
 from prediction_api.lending_club_loan_default_predictor import LendingClubLoanDefaultPredictor
+from prediction_api.kickstarter_pitch_outcome import KickstarterPitchOutcomePredictor 
 
 app = Flask(__name__)
 
 movie_mod = MovieRoiPredictor()
 loan_mod = LendingClubLoanDefaultPredictor()
+kickstarter_mod = KickstarterPitchOutcomePredictor()
 
 @app.route('/')
 def hello():
@@ -23,6 +25,15 @@ def movie_roi():
 @app.route('/lending_club_loan_default')
 def lending_club_loan_default():
     prediction = loan_mod.predict(request.args)
+    data = {
+        'prediction': prediction,
+    }
+    return jsonify(data)
+
+@app.route('/kickstarter_pitch_outcome', methods=['POST'])
+def kickstarter_pitch_outcome():
+    content = request.get_json()
+    prediction = kickstarter_mod.predict(content)
     data = {
         'prediction': prediction,
     }
