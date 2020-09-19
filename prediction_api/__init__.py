@@ -1,5 +1,6 @@
 import numpy as np
-from flask import Flask, request, jsonify
+import json
+from flask import Flask, request, redirect, url_for, jsonify
 from prediction_api.predictors import (
     MovieRoiPredictor, 
     LendingClubLoanDefaultPredictor,
@@ -8,7 +9,8 @@ from prediction_api.predictors import (
     NhlPlayerSeasonScoringTotalPredictor,
 )
 
-app = Flask(__name__)
+with open('./prediction_api/static/models_list.json') as f:
+    models_documentation = json.load(f)
 
 movie_mod = MovieRoiPredictor()
 loan_mod = LendingClubLoanDefaultPredictor()
@@ -16,9 +18,15 @@ kickstarter_mod = KickstarterPitchOutcomePredictor()
 titanic_mod = TitanicPredictor()
 nhl_mod = NhlPlayerSeasonScoringTotalPredictor()
 
+app = Flask(__name__)
+
 @app.route('/')
-def hello():
-    return "Hello World!"
+def index():
+    return redirect(url_for('models'))
+
+@app.route('/models')
+def models():
+    return jsonify(models_documentation)
 
 @app.route('/movie_roi')
 def movie_roi():

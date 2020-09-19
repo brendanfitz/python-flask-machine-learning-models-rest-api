@@ -1,0 +1,24 @@
+{
+    "models": [
+        {
+            "route": "movie_roi",
+            "description": "Predict movie Return-on-Investment (ROI) from production data"
+        },
+        {
+            "route": "lending_club_loan_default",
+            "description": "Predict the probablity of default for a Lending Club borrower based on their loan application data"
+        },
+        {
+            "route": "kickstarter_pitch_outcome",
+            "description": "Predict whether a Kickstarter project will be funded (1) or not (0) based on natural language processing (NLP) of the project's pitch"
+        },
+        {
+            "route": "titanic",
+            "description": "Predict whether you will survive the Titantic (1) or not (0) based on your passenger details"
+        },
+        {
+            "name": "nhl_player_season_scoring_total",
+            "description": "Predict an NHL players season scoring total based on past performance and player attributes"
+        }
+    ]
+}
