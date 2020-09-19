@@ -53,19 +53,10 @@ def aws_download(object_name, filename=None,
 class Pickle_Imports:
 
     def __init__(self):
-        self.rf = None
         self.kickstarter_vectorizer = None
         self.kickstarter_model = None
         self.titantic_model = None
         self.nhl_goals_model = None
-
-    def mcnulty_downloads(self):
-        start = time.time()
-        filename = 'rf.pkl'
-        with open(aws_download(filename), 'rb') as f:
-            self.rf = pickle.load(f)
-        end = time.time()
-        print('CLF: {:,.4f} seconds'.format(end - start))
 
     def fletcher_downloads(self):
         start = time.time()

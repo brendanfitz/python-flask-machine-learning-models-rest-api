@@ -33,25 +33,6 @@ def luther_prediction(form):
     prediction = pickles.regr.predict(row)[0]
     return prediction
 
-def mcnulty_prediction(form):
-    if pickles.rf is None:
-        pickles.mcnulty_downloads()
-
-    row = pd.DataFrame({
-            'loan_amnt': form.loan_amnt.data,
-            'int_rate': form.int_rate.data,
-            'annual_inc': form.annual_inc.data,
-            'dti': form.dti.data,
-            'emp_length': mu.emp_length_map[form.emp_length.data],
-            'term': mu.term_map[form.term.data],
-            'purpose': mu.purpose_map[form.purpose.data],
-            'grade': mu.grade_map[form.grade.data],
-        },
-        index=[0]
-    )
-    prediction = "{:0.0%}".format(pickles.rf.predict_proba(row)[0, 1])
-    return prediction
-
 
 def titantic_prediction(form):
     if pickles.titantic_model is None:
