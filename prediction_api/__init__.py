@@ -9,6 +9,13 @@ from prediction_api.predictors import (
     NhlPlayerSeasonScoringTotalPredictor,
 )
 
+
+# temporarily ignore warnings before updating sklearn models
+import warnings
+
+warnings.simplefilter("ignore", UserWarning)
+
+
 with open('./prediction_api/static/models_list.json') as f:
     models_documentation = json.load(f)
 
