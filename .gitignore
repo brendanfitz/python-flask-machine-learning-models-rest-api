@@ -1,6 +1,9 @@
 # model pickles
 /prediction_api/static/pickles/
 
+# flask virtual environment
+/flaskenv/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
